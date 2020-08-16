@@ -1,7 +1,7 @@
 import React from 'react'
 
 // "border: 1px solid #eee;padding: 20px;margin-left: 10px"
-const Post = () => {
+const Post = ({ title, content }) => {
   const styles = {
     border: '1px solid #eee',
     padding: '20px',
@@ -9,8 +9,8 @@ const Post = () => {
   }
   return (
     <div style={styles}>
-      <h3>Post title</h3>
-      <p>Post content</p>
+      <h3>{title}</h3>
+      <p>{content}</p>
     </div>
   )
 }
