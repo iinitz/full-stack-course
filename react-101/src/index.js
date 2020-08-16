@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import PostList from './PostList';
+import CreatePostForm from './CreatePostForm';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <PostList />
+    <CreatePostForm />
   </React.StrictMode>,
   document.getElementById('root')
 );
