@@ -38,7 +38,7 @@ const CreatePostForm = () => {
         <textarea value={content} onChange={handleContentChange} />
       </div>
       <div>Author: <input value={author} onChange={handleAuthorChange} /></div>
-      <button onClick={handleCreatePost}>Create post</button>
+      <button type="submit">Create post</button>
       <p>Now title is: {title}</p>
     </form>
   )
