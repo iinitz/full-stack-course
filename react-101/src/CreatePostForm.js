@@ -14,8 +14,18 @@ const CreatePostForm = () => {
   const handleAuthorChange = (e) => {
     setAuthor(e.target.value)
   }
+  const handleCreatePost = async (e) => {
+    e.preventDefault()
+    const newPost = {
+      title,
+      content,
+      author,
+    }
+    console.log(newPost)
+    // const res = await fetch('/create', newPost)
+  }
   return (
-    <form>
+    <form onSubmit={handleCreatePost}>
       <div>
         Title:
         <input
@@ -28,7 +38,7 @@ const CreatePostForm = () => {
         <textarea value={content} onChange={handleContentChange} />
       </div>
       <div>Author: <input value={author} onChange={handleAuthorChange} /></div>
-      <button>Create post</button>
+      <button onClick={handleCreatePost}>Create post</button>
       <p>Now title is: {title}</p>
     </form>
   )
