@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react'
 import CreatePostForm from '../components/CreatePostForm'
-import PostList from '../components/PostList'
+// import PostList from '../components/PostList'
+import FilterBox from '../components/FilterBox'
 
 const initialPosts = [
   {
     id: 1,
-    title: 1,
+    title: 'Post 1',
     content: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
     author: 'Alice'
   },
@@ -40,7 +41,8 @@ const PostPage = () => {
   return (
     <Fragment>
       <CreatePostForm addPost={addPost} />
-      <PostList posts={posts} />
+      <FilterBox posts={posts} />
+      {/* <PostList posts={posts} /> */}
     </Fragment>
   )
 }
