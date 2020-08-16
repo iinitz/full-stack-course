@@ -77,3 +77,5 @@ console.log(response)
 //   Tony: 2,
 //   Jane: 1,
 // }
+
+const [name, age, phone = 'No phone'] = ['Bob', 20]

@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/async-await.js"
+    "start": "node src/async-await.js",
+    "array": "node src/arr.js",
+    "main": "node -r @babel/register src/main.js",
+    "prestart": "echo prestart"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.11.0",
