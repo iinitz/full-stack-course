@@ -4,7 +4,7 @@ import Post from './Post'
 const posts = [
   {
     id: 1,
-    title: 'Post 1',
+    title: 1,
     content: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
     author: 'Alice'
   },
@@ -12,7 +12,8 @@ const posts = [
     id: 2,
     title: 'Post 2',
     content: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
-    author: 'Bob'
+    author: 'Bob',
+    image: '/logo192.png'
   },
   {
     id: 3,
@@ -29,8 +30,9 @@ const posts = [
 ]
 
 const mapPostToComponent = (post) => {
-  const { id, title, content, author } = post
-  return (<Post key={id} title={title} content={content} author={author} />)
+  const { id, image } = post
+  // return (<Post key={id} {...post} />)
+  return (<Post key={id} post={post} image={image} />)
 }
 const PostList = () => {
   return (
