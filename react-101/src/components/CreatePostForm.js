@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CreatePostForm = () => {
+const CreatePostForm = ({ addPost }) => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [author, setAuthor] = useState('')
@@ -23,6 +23,7 @@ const CreatePostForm = () => {
     }
     console.log(newPost)
     // const res = await fetch('/create', newPost)
+    addPost(newPost)
   }
   return (
     <form onSubmit={handleCreatePost}>
