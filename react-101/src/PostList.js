@@ -29,8 +29,8 @@ const posts = [
 ]
 
 const mapPostToComponent = (post) => {
-  const { title, content } = post
-  return (<Post title={title} content={content} />)
+  const { id, title, content, author } = post
+  return (<Post key={id} title={title} content={content} author={author} />)
 }
 const PostList = () => {
   return (
