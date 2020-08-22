@@ -3,6 +3,8 @@
 
 ```yarn add --dev @babel/preset-env eslint-config-nss```
 
+```yarn add graphql graphql-compose graphql-compose-mongoose mongoose apollo-server-express```
+
 ### Setup
 `.babelrc`
 
