@@ -6,6 +6,8 @@ services:
       mongo:
         condition: service_healthy
     build: .
+    ports:
+      - 3000:3000
     restart: always
     container_name: api
     hostname: api
@@ -22,8 +24,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: user
       MONGO_INITDB_ROOT_PASSWORD: pass
-    volumes:
-      - ../db:/data/db
+    # volumes:
+    #   - ../db:/data/db
     container_name: mongodb
     hostname: mongodb
     healthcheck:
