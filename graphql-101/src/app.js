@@ -3,6 +3,7 @@ import { createServer } from 'http'
 import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
 
+import './connection'
 import schema from './graphql'
 
 const app = express()
