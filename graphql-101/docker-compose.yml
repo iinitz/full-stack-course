@@ -1,0 +1,41 @@
+version: "2.1"
+
+services:
+  api:
+    depends_on:
+      mongo:
+        condition: service_healthy
+    build: .
+    restart: always
+    container_name: api
+    hostname: api
+    networks:
+      - gateway
+      - graphql
+    # labels:
+    #   - traefik.web.frontend.rule=Host:example.com
+    #   - traefik.web.port=3000
+    #   - traefik.docker.network=gateway
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    volumes:
+      - ../db:/data/db
+    container_name: mongodb
+    hostname: mongodb
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - graphql
+
+networks:
+  gateway:
+    external: true
+  graphql:
+    external: true
