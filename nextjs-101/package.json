@@ -11,7 +11,8 @@
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "recoil": "^0.0.10"
   },
   "scripts": {
     "dev": "next -- -p 3001",
