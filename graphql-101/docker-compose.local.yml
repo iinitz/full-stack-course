@@ -1,0 +1,26 @@
+version: "2.1"
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    # volumes:
+    #   - ../db:/data/db
+    ports:
+      - 27017:27017
+    container_name: mongodb
+    hostname: mongodb
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - graphql
+
+networks:
+  graphql:
+    external: true
