@@ -1,28 +1,15 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
 import { useRecoilValue, useResetRecoilState } from 'recoil'
-import { gql, useMutation } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import Router from 'next/router'
 
 import Link from '../components/Link'
 import CartItems from '../components/CartItems'
 import { cartState, customerInfoState } from '../states/atom'
 import CustomerInfo from '../components/CustomerInfo'
-
-const CREATE_ORDER_MUTATION = gql`
-mutation ($record: CreateOneOrderInput!) {
-  createOrder (record: $record) {
-    recordId
-  }
-}
-`
-const CREATE_ORDER_ITEMS_MUTATION = gql`
-mutation ($records: [CreateManyOrderItemInput!]!) {
-  createOrderItems (records: $records) {
-    recordIds
-  }
-}
-`
+import { CREATE_ORDER_MUTATION } from '../graphql/mutations/createOrderMutation'
+import { CREATE_ORDER_ITEMS_MUTATION } from '../graphql/mutations/createOrderItemsMutation'
 
 const Cart = () => {
   const cart = useRecoilValue(cartState)
@@ -49,7 +36,7 @@ const Cart = () => {
     console.log(orderId)
     resetCart()
     resetCustomerInfo()
-    Router.push('/products')
+    Router.push('/order/'+orderId)
   }
   return (
     <>
