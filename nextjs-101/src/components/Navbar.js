@@ -6,6 +6,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useRecoilValue } from 'recoil'
+
+import { cartCountState } from '../states/atom'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -15,17 +18,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
-
+  const cartCount = useRecoilValue(cartCountState)
+  console.log(cartCount)
   return (
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" noWrap>
-            {process.env.NEXT_PUBLIC_APP_NAME}
+            APP NAME
           </Typography>
           <div className={classes.grow} />
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={cartCount} color="secondary">
               <ShoppingCartIcon />
             </Badge>
           </IconButton>
