@@ -42,7 +42,7 @@ export default function ProductList({ products }) {
           <ListSubheader component="div">Product list</ListSubheader>
         </GridListTile>
         {products.map((product) => (
-          <GridListTile key={product.imgUrl}>
+          <GridListTile key={product._id}>
             <img src={product.imgUrl} alt={product.name} />
             <GridListTileBar
               title={product.name}

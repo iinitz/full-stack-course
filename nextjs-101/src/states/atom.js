@@ -12,3 +12,11 @@ export const cartCountState = selector({
     return cart.length
   },
 })
+
+export const customerInfoState = atom({
+  key: 'customerInfoState',
+  default: {
+    name: '',
+    address: '',
+  }
+})

@@ -3,33 +3,10 @@ import { useQuery, gql } from '@apollo/client'
 
 import ProductList from '../components/ProductList'
 
-const products = [
-  {
-    imgUrl: 'https://material-ui.com/static/images/grid-list/hats.jpg',
-    name: 'Product',
-    price: 100
-  },
-  {
-    imgUrl: 'https://material-ui.com/static/images/grid-list/hats.jpg',
-    name: 'Product',
-    price: 100
-  },
-  {
-    imgUrl: 'https://material-ui.com/static/images/grid-list/hats.jpg',
-    name: 'Product',
-    price: 100
-  },
-  {
-    imgUrl: 'https://material-ui.com/static/images/grid-list/hats.jpg',
-    name: 'Product',
-    price: 100
-  },
-]
-
 const PRODUCTS_QUERY = gql`
 {
   productPagination {
-    items {
+    products: items {
       _id
       name
       imgUrl
@@ -48,9 +25,10 @@ const Products = () => {
   if (error) {
     return <h3>Error</h3>
   }
-  console.log(data)
   return (
-    <ProductList products={products} />
+    <ProductList
+      products={data.productPagination.products}
+    />
   )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,7 +20,9 @@ const useStyles = makeStyles((theme) => ({
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const cartCount = useRecoilValue(cartCountState)
-  console.log(cartCount)
+  const redirectToCartPage = () => {
+    Router.push('/cart')
+  }
   return (
     <div className={classes.grow}>
       <AppBar position="static">
@@ -28,7 +31,7 @@ export default function PrimarySearchAppBar() {
             APP NAME
           </Typography>
           <div className={classes.grow} />
-          <IconButton color="inherit">
+          <IconButton color="inherit" onClick={redirectToCartPage}>
             <Badge badgeContent={cartCount} color="secondary">
               <ShoppingCartIcon />
             </Badge>
