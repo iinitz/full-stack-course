@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  nextjs:
+    build: .
+    restart: always
+    container_name: nextjs
+    hostname: nextjs
+    networks:
+      - gateway
+      - graphql
+    # labels:
+    #   - traefik.web.frontend.rule=Host:example.com
+    #   - traefik.web.port=3001
+    #   - traefik.docker.network=gateway
+
+networks:
+  gateway:
+    external: true
+  graphql:
+    external: true
