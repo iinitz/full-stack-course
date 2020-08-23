@@ -21,7 +21,7 @@ export default function PrimarySearchAppBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" noWrap>
-            Material-UI
+            {process.env.NEXT_PUBLIC_APP_NAME}
           </Typography>
           <div className={classes.grow} />
           <IconButton color="inherit">
