@@ -1,0 +1,21 @@
+version: "3"
+services:
+  traefik:
+    image: traefik:1.7-alpine
+    command: --api --docker --logLevel=DEBUG
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+      # - 8080:8080 # uncomment if you need traefik web ui
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/etc/traefik
+    container_name: traefik
+    hostname: traefik
+    networks:
+      - gateway
+
+networks:
+  gateway:
+    external: true

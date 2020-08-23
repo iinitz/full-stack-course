@@ -1,0 +1,22 @@
+defaultEntryPoints = ["http", "https"]
+
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+    compress = true
+    [entryPoints.http.redirect]
+      entryPoint = "https"
+
+  [entryPoints.https]
+    address = ":443"
+      [entryPoints.https.tls]
+
+[acme]
+  email = "youremail@domain.com"
+  storage = "/etc/traefik/acme.json"
+  caServer = "https://acme-v02.api.letsencrypt.org/directory"
+  onHostRule = true
+
+  entryPoint = "https"
+  [acme.httpChallenge]
+    entryPoint = "http"
